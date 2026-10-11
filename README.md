@@ -33,7 +33,7 @@ I created this project to practice Python programming, input validation, calcula
 4. Run the following command:
     'python student_performance_analyzer.py'
 
-## Output
+## Expected Results
 
 The program displays the student’s total marks, total maximum marks, overall percentage, performance category, and best- and lowest-performing subjects.
 
