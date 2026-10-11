@@ -1,3 +1,4 @@
+
 # Student Performance Analyzer
 
 ## About the Project
@@ -6,6 +7,8 @@ The Student Performance Analyzer is a Python project that calculates students’
 
 I created this project to practice Python programming, input validation, calculations, and working with CSV files.
 
+## Program Output 
+![Student Performance Analyzer Output](Student-Performance-Output.png)
 ## Features
 
 * Enter a student’s name.
