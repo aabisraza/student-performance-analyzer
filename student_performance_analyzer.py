@@ -1,11 +1,19 @@
 import csv
 import os
 
+
 print("====================================")
 print("   STUDENT PERFORMANCE ANALYZER")
 print("====================================")
 
-student_name = input("Enter student's name: ")
+while True:
+    student_name = input("Enter student's name: ").strip()
+
+    if student_name:
+        break
+    else:
+        print("Student name cannot be empty.")
+
 print(f"Welcome, {student_name}! ")
 
 while True:
@@ -110,16 +118,20 @@ print(f"Subject percentage: {lowest_percentage:.2f}%")
 
 file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)) , "student_results.csv")
 
-with open(file_path, "w", newline="", encoding="utf-8") as file:
+file_exists = os.path.exists(file_path)
+
+with open(file_path, "a", newline="", encoding="utf-8") as file:
     writer = csv.writer(file)
 
-    writer.writerow([
-        "Student Name",
-        "Subject",
-        "Maximum Marks",
-        "Marks Obtained",
-        "Percentage"
-    ])
+    # Write the header only if the file is new or empty
+    if not file_exists or os.path.getsize(file_path) == 0:
+        writer.writerow([
+            "Student Name",
+            "Subject",
+            "Maximum Marks",
+            "Marks Obtained",
+            "Percentage"
+        ])
 
     for subject in subjects:
         subject_percentage = (
@@ -134,5 +146,5 @@ with open(file_path, "w", newline="", encoding="utf-8") as file:
             f"{subject_percentage:.2f}"
         ])
 
-print("\nResults saved to student_results.csv")
+print("\nResults successfully added to student_results.csv")
 
